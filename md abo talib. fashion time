@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body { background: #f9f9f9; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 10px; }
+  .grid-container { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; /* প্রতি সারিতে ২টি ঘড়ি */
+    gap: 10px; 
+  }
+  .product-card { 
+    background: white; 
+    border-radius: 10px; 
+    padding: 10px; 
+    text-align: center; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: relative;
+  }
+  .badge { 
+    background: #00b894; color: white; padding: 2px 8px; 
+    border-radius: 5px; font-size: 11px; position: absolute; top: 110px; left: 10px; 
+  }
+  img { width: 100%; border-radius: 8px; height: 150px; object-fit: cover; }
+  .old-price { color: #ff7675; text-decoration: line-through; font-size: 12px; }
+  .new-price { color: #2d3436; font-size: 18px; font-weight: bold; }
+  .title { font-size: 14px; margin: 5px 0; color: #333; height: 40px; overflow: hidden; }
+  .buy-btn { 
+    background: #fdcb6e; color: #333; border: none; padding: 8px; 
+    border-radius: 5px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="product-card">
+    <img src="আপনার-বোকাটি ১.jpg" alt="Watch 1">
+    <div class="badge">Save 650 BDT</div>
+    <div class="title">SKMEI Rotating Wheel Watch</div>
+    <div class="old-price">Tk 1200</div>
+    <div class="new-price">Tk 550</div>
+    <button class="buy-btn" onclick="openWA('SKMEI Rotating')">⚡ Buy now</button>
+  </div>
+
+  <div class="product-card">
+    <img src="আপনার-Rolex -২.jpg" alt="Watch 2">
+    <div class="badge">Save 360 BDT</div>
+    <div class="title">Rolex Style Luxury Watch</div>
+    <div class="old-price">Tk 850</div>
+    <div class="new-price">Tk 490</div>
+    <button class="buy-btn" onclick="openWA('Rolex Style')">⚡ Buy now</button>
+  </div>
+</div>
+
+<script>
+  function openWA(pName) {
+    var myNum = "8801770405937"; // আপনার WhatsApp নম্বর দিন
+    var msg = "আমি এই ঘড়িটি কিনতে চাই: " + pName;
+    window.open("https://wa.me/" + myNum + "?text=" + encodeURIComponent(msg));
+  }
+</script>
+
+</body>
+</html>
