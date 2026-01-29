@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+  .login-box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; width: 90%; max-width: 350px; }
+  .dashboard { display: none; width: 100%; padding: 10px; box-sizing: border-box; }
+  .header { text-align: center; background: #2c3e50; color: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; }
+  .table-container { overflow-x: auto; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+  table { width: 100%; border-collapse: collapse; min-width: 1000px; }
+  th, td { padding: 10px; border: 1px solid #ddd; text-align: center; font-size: 13px; }
+  th { background: #34495e; color: white; }
+  .paid { background-color: #27ae60 !important; color: white !important; font-weight: bold; }
+  .total-cell { background: #f1c40f; font-weight: bold; color: #000; }
+  input[type="password"] { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+  .btn { width: 100%; padding: 12px; background: #2c3e50; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div id="loginArea" class="login-box">
+  <h2>সদস্য লগইন</h2>
+  <input type="password" id="passInput" placeholder="পাসওয়ার্ড লিখুন">
+  <button class="btn" onclick="checkLogin()">প্রবেশ করুন</button>
+</div>
+
+<div id="mainDashboard" class="dashboard">
+  <div class="header">
+    <h2 style="margin:0;">আবু তালিব সঞ্চয় সমিতি</h2>
+    <p style="margin:5px 0 0;">মাসিক ও বাৎসরিক হিসাব তালিকা</p>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <tr>
+        <th>সদস্যের নাম</th>
+        <th>জানু</th><th>ফেব্রু</th><th>মার্চ</th><th>এপ্রিল</th><th>মে</th><th>জুন</th>
+        <th>জুলাই</th><th>আগস্ট</th><th>সেপ্টে</th><th>অক্টো</th><th>নভে</th><th>ডিসে</th>
+        <th>বাৎসরিক</th>
+        <th class="total-cell">মোট জমা</th>
+      </tr>
+      
+      <tr class="member-row">
+        <td>এখানে নাম লিখুন</td> <td class="paid">৬০০</td> <td class="paid">৬০০</td>
+        <td>০</td><td>০</td><td>০</td><td>০</td><td>০</td><td>০</td><td>০</td><td>০</td><td>০</td><td>০</td>
+        <td class="paid">২০০০</td>
+        <td class="total-cell">০</td> 
+      </tr>
+
+      <tr class="member-row">
+        <td>এখানে নাম লিখুন</td> <td class="paid">৬০০</td>
+        <td>০</td><td>০</td><td>০</td><td>০</td><td>০</td><td>০</td><td>০</td><td>০</td><td>০</td><td>০</td><td>০</td>
+        <td>০</td>
+        <td class="total-cell">০</td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <button class="btn" style="background:#e74c3c; width: 150px; margin: 0 auto; display: block;" onclick="location.reload()">লগ আউট</button>
+</div>
+
+<script>
+  function checkLogin() {
+    var pass = document.getElementById("passInput").value;
+    if (pass === "12345") {
+      document.getElementById("loginArea").style.display = "none";
+      document.getElementById("mainDashboard").style.display = "block";
+      document.body.style.alignItems = "flex-start";
+      calculateTotals();
+    } else {
+      alert("ভুল পাসওয়ার্ড!");
+    }
+  }
+
+  function calculateTotals() {
+    var rows = document.querySelectorAll(".member-row");
+    rows.forEach(function(row) {
+      var cells = row.querySelectorAll("td");
+      var total = 0;
+      for (var i = 1; i <= 13; i++) {
+        var val = parseInt(cells[i].innerText) || 0;
+        total += val;
+      }
+      cells[14].innerText = total + " TK";
+    });
+  }
+</script>
+
+</body>
+</html>
+ বিজোন ২০ তালিকা  পাসউযাট ১২৩৪৫
