@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>আবু তালিব ওয়াচ শপ</title>
+<style>
+  body { background: #f1f2f6; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; }
+  
+  /* নতুন স্টাইলিশ ব্যানার */
+  .header-banner {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=1000');
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    border-bottom: 4px solid #fdcb6e;
+  }
+  .header-banner h1 { margin: 0; font-size: 26px; color: #fdcb6e; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); }
+  .header-banner p { margin: 5px 0 0; font-size: 14px; opacity: 0.9; }
 
+  .grid-container { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; /* প্রতি সারিতে ২টি ঘড়ি */
+    gap: 12px; 
+    padding: 15px;
+  }
+  .product-card { 
+    background: white; 
+    border-radius: 12px; 
+    padding: 10px; 
+    text-align: center; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    position: relative;
+    border: 1px solid #eee;
+  }
+  .badge { 
+    background: #00b894; color: white; padding: 3px 6px; 
+    border-radius: 5px; font-size: 10px; position: absolute; top: 10px; right: 10px; 
+    font-weight: bold; z-index: 10;
+  }
+  /* ছবির সাইজ ঠিক করা */
+  img { width: 100%; border-radius: 8px; height: 140px; object-fit: cover; margin-bottom: 8px; }
+  
+  .old-price { color: #ff7675; text-decoration: line-through; font-size: 11px; margin-top: 5px; }
+  .new-price { color: #2d3436; font-size: 16px; font-weight: bold; margin-bottom: 5px; }
+  .title { font-size: 13px; margin: 5px 0; color: #333; height: 35px; overflow: hidden; line-height: 1.2; font-weight: 600; }
+  
+  .buy-btn { 
+    background: #fdcb6e; color: #333; border: none; padding: 10px; 
+    border-radius: 8px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 5px;
+    font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 5px;
+  }
+  .buy-btn:active { transform: scale(0.95); }
+</style>
+</head>
+<body>
+
+<div class="header-banner">
+  <h1>আবু তালিব ওয়াচ শপ</h1>
+  <p>সেরা মানের ঘড়ি এখন আপনার হাতের মুঠোয়</p>
+</div>
+
+<div class="grid-container">
+  
+  <div class="product-card">
+    <div class="badge">Save 650 TK</div>
+    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=500" alt="SKMEI Watch">
+    <div class="title">SKMEI Rotating Wheel Watch</div>
+    <div class="old-price">Tk 1200</div>
+    <div class="new-price">Tk 550</div>
+    <button class="buy-btn" onclick="openWA('SKMEI Rotating')">⚡ Buy now</button>
+  </div>
+
+  <div class="product-card">
+    <div class="badge">Save 360 TK</div>
+    <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500" alt="Luxury Watch">
+    <div class="title">Rolex Style Luxury Watch</div>
+    <div class="old-price">Tk 850</div>
+    <div class="new-price">Tk 490</div>
+    <button class="buy-btn" onclick="openWA('Rolex Style')">⚡ Buy now</button>
+  </div>
+
+  <div class="product-card">
+    <div class="badge">Save 500 TK</div>
+    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Smart Watch">
+    <div class="title">New Gen Smart Watch</div>
+    <div class="old-price">Tk 2000</div>
+    <div class="new-price">Tk 1500</div>
+    <button class="buy-btn" onclick="openWA('Smart Watch')">⚡ Buy now</button>
+  </div>
+
+  <div class="product-card">
+    <div class="badge">Save 200 TK</div>
+    <img src="https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=500" alt="Classic Watch">
+    <div class="title">Classic Silver Watch</div>
+    <div class="old-price">Tk 1000</div>
+    <div class="new-price">Tk 800</div>
+    <button class="buy-btn" onclick="openWA('Classic Silver')">⚡ Buy now</button>
+  </div>
+
+</div>
+
+<script>
+  function openWA(pName) {
+    var myNum = "8801770405937"; 
+    var msg = "সালাম, আমি এই ঘড়িটি কিনতে চাই: " + pName + "\nআপনার বিকাশ নম্বরটি দিন।";
+    window.open("https://wa.me/" + myNum + "?text=" + encodeURIComponent(msg));
+  }
+</script>
+
+</body>
+</html>
